@@ -61,7 +61,12 @@ body {
 }
 
 canvas {
+	z-index: 1;
 	background: #000;
+}
+
+.export {
+	z-index: 0;
 }
 
 .flipped canvas {
