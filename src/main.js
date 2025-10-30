@@ -1,4 +1,4 @@
-import ShaderPad from 'shaderpad';
+import ShaderPad, { save } from 'shaderpad';
 import handleTouch from './handleTouch';
 import fragmentShaderSrc from './fragmentShader.glsl';
 
@@ -83,7 +83,7 @@ async function main() {
 	const displayShader = new ShaderPad(fragmentShaderSrc);
 	const exportCanvas = document.createElement('canvas');
 	exportCanvas.classList.add('export');
-	const exportShader = new ShaderPad(fragmentShaderSrc, { canvas: exportCanvas });
+	const exportShader = new ShaderPad(fragmentShaderSrc, { canvas: exportCanvas, plugins: [save] });
 	[displayShader, exportShader].forEach(shader => {
 		shader.initializeUniform('u_nShuffles', 'int', nShuffles);
 		shader.initializeUniform('u_nStrips', 'float', nStrips);
