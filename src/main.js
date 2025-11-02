@@ -83,7 +83,7 @@ async function main() {
 	const displayShader = new ShaderPad(fragmentShaderSrc);
 	const exportCanvas = document.createElement('canvas');
 	exportCanvas.classList.add('export');
-	const exportShader = new ShaderPad(fragmentShaderSrc, { canvas: exportCanvas, plugins: [save] });
+	const exportShader = new ShaderPad(fragmentShaderSrc, { canvas: exportCanvas, plugins: [save()] });
 	[displayShader, exportShader].forEach(shader => {
 		shader.initializeUniform('u_nShuffles', 'int', nShuffles);
 		shader.initializeUniform('u_nStrips', 'float', nStrips);
